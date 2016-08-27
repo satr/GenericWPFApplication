@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{386C4498-4DAD-464A-997A-AD1C79B1961E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Backend</RootNamespace>
+    <AssemblyName>Backend</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>..\Key.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Annotations\Annotations.cs" />
+    <Compile Include="BusinessLayer\ActionResult.cs" />
+    <Compile Include="BusinessLayer\ActionResultWithValue.cs" />
+    <Compile Include="BusinessLayer\Contacts\Contact.cs" />
+    <Compile Include="BusinessLayer\Contacts\ContactsRepository.cs" />
+    <Compile Include="BusinessLayer\Documents\Document.cs" />
+    <Compile Include="BusinessLayer\Documents\DocumentsRepository.cs" />
+    <Compile Include="BusinessLayer\IActionResult.cs" />
+    <Compile Include="BusinessLayer\Images\ImageFileFormat.cs" />
+    <Compile Include="BusinessLayer\Images\ImageHelper.cs" />
+    <Compile Include="BusinessLayer\IOperationScopeActionResultSubscriber.cs" />
+    <Compile Include="BusinessLayer\IOperationScopeSubscriber.cs" />
+    <Compile Include="BusinessLayer\OperationScopeContext.cs" />
+    <Compile Include="BusinessLayer\Email\AttachedItem.cs" />
+    <Compile Include="BusinessLayer\Email\EmailController.cs" />
+    <Compile Include="BusinessLayer\Email\EmailMessage.cs" />
+    <Compile Include="BusinessLayer\Email\IAttachedItemContent.cs" />
+    <Compile Include="BusinessLayer\EntityBase.cs" />
+    <Compile Include="BusinessLayer\EntityCollectionRepository.cs" />
+    <Compile Include="BusinessLayer\IOperationScopeContext.cs" />
+    <Compile Include="BusinessLayer\IOperationScopeContextSubscriber.cs" />
+    <Compile Include="BusinessLayer\ICollectionRepository.cs" />
+    <Compile Include="BusinessLayer\IEntityRepository.cs" />
+    <Compile Include="BusinessLayer\IFileContent.cs" />
+    <Compile Include="BusinessLayer\IRepository.cs" />
+    <Compile Include="BusinessLayer\NotifyingEntityBase.cs" />
+    <Compile Include="BusinessLayer\OperationScopeSubscriberContainer.cs" />
+    <Compile Include="BusinessLayer\Settings\DatabaseSettings.cs" />
+    <Compile Include="BusinessLayer\Settings\DatabaseSettingsRepository.cs" />
+    <Compile Include="BusinessLayer\Settings\EmailSettings.cs" />
+    <Compile Include="BusinessLayer\Settings\EmailSettingsRepository.cs" />
+    <Compile Include="BusinessLayer\Settings\IDatabaseSettings.cs" />
+    <Compile Include="BusinessLayer\Settings\IEmailSettings.cs" />
+    <Compile Include="BusinessLayer\Settings\ISecuritySettings.cs" />
+    <Compile Include="BusinessLayer\Settings\ScanSettings.cs" />
+    <Compile Include="BusinessLayer\Settings\SecuritySettingsBase.cs" />
+    <Compile Include="BusinessLayer\UniqueEntityBase.cs" />
+    <Compile Include="BusinessLayer\Wia\ErrorResources.cs" />
+    <Compile Include="BusinessLayer\Wia\IWiaManager.cs" />
+    <Compile Include="BusinessLayer\Wia\Scanner.cs" />
+    <Compile Include="BusinessLayer\Wia\WiaManager.cs" />
+    <Compile Include="Common\Helper.cs" />
+    <Compile Include="Common\SecureStringHelper.cs" />
+    <Compile Include="Common\ServiceLocator.cs" />
+    <Compile Include="DataLayer\DatabaseContext.cs" />
+    <Compile Include="DataLayer\DatabaseContextBase.cs" />
+    <Compile Include="DataLayer\EntityRepositoryBase.cs" />
+    <Compile Include="DataLayer\Settings\ApplicationSettingsDataProvider.cs" />
+    <Compile Include="DataLayer\Settings\DatabaseSettingsDataProvider.cs" />
+    <Compile Include="DataLayer\Settings\DatabaseSettingsStorage.cs" />
+    <Compile Include="DataLayer\Settings\EmailSettingsDataProvider.cs" />
+    <Compile Include="DataLayer\Settings\EmailSettingsStorage.cs" />
+    <Compile Include="DataLayer\Settings\ISettingsStorage.cs" />
+    <Compile Include="DataLayer\Settings\SettingsStorageBase.cs" />
+    <Compile Include="DataLayer\SqlConnectionInfo.cs" />
+    <Compile Include="DataLayer\SqlConnectionInfoFactory.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Lib\wiaacmgr.exe" />
+    <Content Include="Lib\wiaaut.dll" />
+    <Content Include="Lib\wiadefui.dll" />
+    <Content Include="Lib\wiadss.dll" />
+    <Content Include="Lib\WiaExtensionHost64.dll" />
+    <Content Include="Lib\wiarpc.dll" />
+    <Content Include="Lib\wiascanprofiles.dll" />
+    <Content Include="Lib\wiaservc.dll" />
+    <Content Include="Lib\wiashext.dll" />
+    <Content Include="Lib\wiatrace.dll" />
+    <Content Include="Lib\wiawow64.exe" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="WIA">
+      <Guid>{94A0E92D-43C0-494E-AC29-FD45948A5221}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Backend.licenseheader" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

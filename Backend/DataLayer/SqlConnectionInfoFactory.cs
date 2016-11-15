@@ -58,7 +58,7 @@ namespace Backend.DataLayer
             foreach (DataRow row in table.Rows)
             {
                 var sqlConnectionInfo = GetServerSettings(table, row);
-                if(sqlConnectionInfo?.Version != null)
+                if(sqlConnectionInfo != null)
                     list.Add(sqlConnectionInfo);
             }
             return list.OrderByDescending(s => s.Version).ToList();
